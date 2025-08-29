@@ -415,30 +415,6 @@ app.get(
   }
 );
 
-// Endpoint de fatiga (GET por cameraId)
-app.get("/fatiga/camera/:cameraId", autenticar, async (req, res) => {
-  const { cameraId } = req.params;
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
-  try {
-    const datos = await Fatiga.find({
-      idCamara: cameraId,
-      idUsuario: req.user.id,
-    })
-      .sort({ fechaHora: -1 })
-      .skip((page - 1) * limit)
-      .limit(limit);
-    const total = await Fatiga.countDocuments({
-      idCamara: cameraId,
-      idUsuario: req.user.id,
-    });
-    res.json({ datos, totalPages: Math.ceil(total / limit) });
-  } catch (err) {
-    console.error("Error al obtener datos de fatiga por cámara:", err.message);
-    res.status(500).json({ error: err.message });
-  }
-});
-
 // Middleware global de manejo de errores
 app.use((err, req, res, next) => {
   console.error("Error global:", err.stack);

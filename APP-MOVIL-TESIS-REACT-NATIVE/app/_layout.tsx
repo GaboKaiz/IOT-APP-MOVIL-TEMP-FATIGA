@@ -13,7 +13,16 @@ export default function RootLayout() {
         <Stack.Screen name="dashboard" options={{ headerShown: false }} />
         <Stack.Screen name="profile" options={{ headerShown: false }} />
         <Stack.Screen name="temperatura" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="temperatura-datos"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="temperatura-grafico"
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="fatiga" options={{ headerShown: false }} />
+        <Stack.Screen name="fatiga-datos" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

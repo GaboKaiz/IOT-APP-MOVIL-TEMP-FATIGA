@@ -4,12 +4,19 @@ import axios from "axios";
 import { useRouter } from "expo-router";
 import React, { useContext, useEffect, useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
   Dimensions,
   Image,
   TextInput,
   TouchableOpacity,
+  View,
 } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 import BottomNav from "../components/BottomNav";
@@ -20,74 +27,153 @@ const responsiveWidth = Math.min(width, 600);
 const responsiveHeight = Math.min(height, 1800);
 const isSmallScreen = width < 360;
 
+// Lista de nombres femeninos (copiada del dashboard)
+const nombresFemeninos = [
+  "talita",
+  "rosa",
+  "maria",
+  "milagros",
+  "ana",
+  "lucia",
+  "sofia",
+  "isabel",
+  "carmen",
+  "laura",
+  "julia",
+  "paula",
+  "clara",
+  "elena",
+  "sara",
+  "emma",
+  "valentina",
+  "camila",
+  "victoria",
+  "andrea",
+  "patricia",
+  "susana",
+  "marta",
+  "gloria",
+  "beatriz",
+  "natalia",
+  "diana",
+  "luz",
+  "silvia",
+  "teresa",
+  "adriana",
+  "monica",
+  "carolina",
+  "gabriela",
+  "daniela",
+  "veronica",
+  "alejandra",
+  "esther",
+  "angela",
+  "lorena",
+  "vanessa",
+  "cecilia",
+  "pilar",
+  "irene",
+  "alicia",
+  "raquel",
+  "eva",
+  "miriam",
+  "noelia",
+  "fatima",
+  "cristina",
+  "olga",
+  "rocio",
+  "amalia",
+  "belen",
+  "estefania",
+  "yolanda",
+];
+
 const Container = styled(SafeAreaView)<{ isDarkMode: boolean }>`
   flex: 1;
   background-color: ${({ isDarkMode }) => (isDarkMode ? "#1e293b" : "#e0f2fe")};
   padding: ${isSmallScreen
-      ? responsiveHeight * 0.02
-      : responsiveHeight * 0.03}px
-    ${responsiveWidth * 0.05}px;
-  align-items: center;
+      ? responsiveHeight * 0.015
+      : responsiveHeight * 0.02}px
+    ${responsiveWidth * 0.04}px;
 `;
 
 const Content = styled.View`
   flex: 1;
   align-items: center;
-  padding-bottom: ${responsiveHeight * 0.12}px; /* Espacio para BottomNav */
+  padding-bottom: ${responsiveHeight * 0.15}px; /* Espacio para BottomNav */
 `;
 
-const BackButton = styled(TouchableOpacity)`
-  position: absolute;
-  top: ${isSmallScreen ? responsiveHeight * 0.04 : responsiveHeight * 0.05}px;
-  left: ${responsiveWidth * 0.05}px;
+const Header = styled(View)<{ isDarkMode: boolean }>`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: ${isSmallScreen
+    ? responsiveHeight * 0.015
+    : responsiveHeight * 0.02}px;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? "#2d3748" : "#e0f2fe")};
+  border-radius: 16px;
+  margin-bottom: ${isSmallScreen
+    ? responsiveHeight * 0.02
+    : responsiveHeight * 0.025}px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: ${responsiveWidth * 0.92}px;
 `;
 
-const ProfileHeader = styled.View`
+const ProfileHeader = styled.View<{ isDarkMode: boolean }>`
   align-items: center;
   margin-top: ${isSmallScreen
-    ? responsiveHeight * 0.08
-    : responsiveHeight * 0.1}px;
-  margin-bottom: ${isSmallScreen
     ? responsiveHeight * 0.03
-    : responsiveHeight * 0.05}px;
+    : responsiveHeight * 0.04}px;
+  margin-bottom: ${isSmallScreen
+    ? responsiveHeight * 0.02
+    : responsiveHeight * 0.03}px;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? "#2d3748" : "#ffffff")};
+  border-radius: 16px;
+  padding: ${isSmallScreen
+    ? responsiveHeight * 0.015
+    : responsiveHeight * 0.02}px;
+  border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#60a5fa" : "#3b82f6")};
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 `;
 
 const ProfileImage = styled(Image)`
-  width: ${isSmallScreen ? responsiveWidth * 0.25 : responsiveWidth * 0.3}px;
-  height: ${isSmallScreen ? responsiveWidth * 0.25 : responsiveWidth * 0.3}px;
+  width: ${isSmallScreen ? responsiveWidth * 0.3 : responsiveWidth * 0.35}px;
+  height: ${isSmallScreen ? responsiveWidth * 0.3 : responsiveWidth * 0.35}px;
   border-radius: ${isSmallScreen
-    ? responsiveWidth * 0.125
-    : responsiveWidth * 0.15}px;
+    ? responsiveWidth * 0.15
+    : responsiveWidth * 0.175}px;
   margin-bottom: 16px;
+  border: 3px solid ${({ isDarkMode }) => (isDarkMode ? "#93c5fd" : "#1e40af")};
 `;
 
 const ProfileName = styled.Text<{ isDarkMode: boolean }>`
   font-size: ${isSmallScreen
-    ? responsiveWidth * 0.055
-    : responsiveWidth * 0.06}px;
+    ? responsiveWidth * 0.06
+    : responsiveWidth * 0.07}px;
   font-weight: bold;
-  color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "#1e3a8a")};
+  color: ${({ isDarkMode }) => (isDarkMode ? "#e0f2fe" : "#1e3a8a")};
 `;
 
 const ProfileEmail = styled.Text<{ isDarkMode: boolean }>`
   font-size: ${isSmallScreen
     ? responsiveWidth * 0.04
     : responsiveWidth * 0.045}px;
-  color: ${({ isDarkMode }) => (isDarkMode ? "#cbd5e1" : "#475569")};
+  color: ${({ isDarkMode }) => (isDarkMode ? "#bfdbfe" : "#475569")};
   margin-top: 4px;
 `;
 
 const FormContainer = styled.View<{ isDarkMode: boolean }>`
-  width: ${responsiveWidth * 0.9}px;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? "#1f2937" : "#ffffff")};
-  border-radius: 12px;
+  width: ${responsiveWidth * 0.92}px;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? "#2d3748" : "#ffffff")};
+  border-radius: 16px;
   padding: ${isSmallScreen
-    ? responsiveHeight * 0.015
-    : responsiveHeight * 0.02}px;
+    ? responsiveHeight * 0.02
+    : responsiveHeight * 0.025}px;
   margin-top: ${isSmallScreen
     ? responsiveHeight * 0.02
     : responsiveHeight * 0.03}px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#60a5fa" : "#3b82f6")};
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 `;
 
 const InputContainer = styled.View`
@@ -99,7 +185,7 @@ const InputContainer = styled.View`
 `;
 
 const InputIcon = styled(Ionicons)`
-  margin-right: 8px;
+  margin-right: 10px;
 `;
 
 const Input = styled(TextInput)<{ isDarkMode: boolean; editable: boolean }>`
@@ -108,27 +194,39 @@ const Input = styled(TextInput)<{ isDarkMode: boolean; editable: boolean }>`
     isDarkMode
       ? editable
         ? "#374151"
-        : "#1f2937"
+        : "#2d3748"
       : editable
       ? "#f3f4f6"
       : "#e5e7eb"};
-  border-radius: 8px;
+  border-radius: 10px;
   padding: ${isSmallScreen ? 10 : 12}px;
   font-size: ${isSmallScreen
     ? responsiveWidth * 0.04
     : responsiveWidth * 0.045}px;
-  color: ${({ isDarkMode }) => (isDarkMode ? "#d1d5db" : "#1f2937")};
+  color: ${({ isDarkMode }) => (isDarkMode ? "#d1d5db" : "#1e3a8a")};
+  border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#4b5563" : "#d1d5db")};
 `;
 
-const ActionButton = styled(TouchableOpacity)<{ isDarkMode: boolean }>`
-  background-color: ${({ isDarkMode }) => (isDarkMode ? "#3b82f6" : "#1e40af")};
-  border-radius: 8px;
+const ActionButton = styled(TouchableOpacity)<{
+  isDarkMode: boolean;
+  isCancel?: boolean;
+}>`
+  background-color: ${({ isDarkMode, isCancel }) =>
+    isCancel
+      ? isDarkMode
+        ? "#ef4444"
+        : "#dc2626"
+      : isDarkMode
+      ? "#3b82f6"
+      : "#1e40af"};
+  border-radius: 12px;
   padding: ${isSmallScreen ? 12 : 14}px;
   align-items: center;
   margin-top: ${isSmallScreen
     ? responsiveHeight * 0.015
     : responsiveHeight * 0.02}px;
-  width: ${responsiveWidth * 0.9}px;
+  width: ${responsiveWidth * 0.92}px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 `;
 
 const ActionButtonText = styled.Text`
@@ -155,6 +253,19 @@ export default function ProfileScreen() {
   const [numeroCelular, setNumeroCelular] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const scale = useSharedValue(1);
+
+  const animatedButtonStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  const handleButtonPressIn = () => {
+    scale.value = withSpring(0.95);
+  };
+
+  const handleButtonPressOut = () => {
+    scale.value = withSpring(1);
+  };
 
   useEffect(() => {
     const loadUser = async () => {
@@ -166,16 +277,10 @@ export default function ProfileScreen() {
         setCorreoElectronico(parsed.correoElectronico || "");
         setNumeroCelular(parsed.numeroCelular || "");
         const nombreLower = parsed.nombreApellido.toLowerCase();
-        if (
-          nombreLower.endsWith("a") ||
-          nombreLower.includes("maria") ||
-          nombreLower.includes("ana") ||
-          nombreLower.includes("lucia")
-        ) {
-          setGenero("mujer");
-        } else {
-          setGenero("hombre");
-        }
+        const esMujer =
+          nombresFemeninos.some((nombre) => nombreLower.includes(nombre)) ||
+          nombreLower.endsWith("a");
+        setGenero(esMujer ? "mujer" : "hombre");
       }
     };
     loadUser();
@@ -239,7 +344,7 @@ export default function ProfileScreen() {
         return;
       }
 
-      const updateData = {
+      const updateData: any = {
         nombreApellido,
         correoElectronico,
         numeroCelular,
@@ -265,6 +370,13 @@ export default function ProfileScreen() {
       setIsEditing(false);
       setContrasena("");
       Alert.alert("Éxito", "Perfil actualizado correctamente");
+
+      // Actualizar género después de guardar cambios
+      const nombreLower = nombreApellido.toLowerCase();
+      const esMujer =
+        nombresFemeninos.some((nombre) => nombreLower.includes(nombre)) ||
+        nombreLower.endsWith("a");
+      setGenero(esMujer ? "mujer" : "hombre");
     } catch (error: any) {
       console.error(
         "Error updating profile:",
@@ -296,17 +408,39 @@ export default function ProfileScreen() {
   return (
     <Container isDarkMode={isDarkMode}>
       <Content>
-        <BackButton onPress={() => router.back()}>
-          <Ionicons
-            name="arrow-back"
-            size={
-              isSmallScreen ? responsiveWidth * 0.06 : responsiveWidth * 0.07
-            }
-            color={isDarkMode ? "white" : "#1e3a8a"}
-          />
-        </BackButton>
+        <Header isDarkMode={isDarkMode}>
+          <TouchableOpacity
+            onPress={() => router.back()}
+            onPressIn={handleButtonPressIn}
+            onPressOut={handleButtonPressOut}
+            accessibilityLabel="Volver atrás"
+          >
+            <Animated.View style={animatedButtonStyle}>
+              <Ionicons
+                name="arrow-back"
+                size={isSmallScreen ? 22 : 26}
+                color={isDarkMode ? "#e0f2fe" : "#1e40af"}
+              />
+            </Animated.View>
+          </TouchableOpacity>
+          <ProfileName isDarkMode={isDarkMode}>Mi Perfil</ProfileName>
+          <TouchableOpacity
+            onPress={toggleTheme}
+            onPressIn={handleButtonPressIn}
+            onPressOut={handleButtonPressOut}
+            accessibilityLabel="Cambiar tema"
+          >
+            <Animated.View style={animatedButtonStyle}>
+              <Ionicons
+                name={isDarkMode ? "sunny" : "moon"}
+                size={isSmallScreen ? 22 : 26}
+                color={isDarkMode ? "#e0f2fe" : "#1e40af"}
+              />
+            </Animated.View>
+          </TouchableOpacity>
+        </Header>
 
-        <ProfileHeader>
+        <ProfileHeader isDarkMode={isDarkMode}>
           <ProfileImage source={profilePic} />
           <ProfileName isDarkMode={isDarkMode}>
             {user?.nombreApellido || "Usuario"}
@@ -385,19 +519,24 @@ export default function ProfileScreen() {
             isDarkMode={isDarkMode}
             onPress={handleUpdateProfile}
             disabled={isLoading}
-            activeOpacity={0.7}
+            onPressIn={handleButtonPressIn}
+            onPressOut={handleButtonPressOut}
+            accessibilityLabel={isEditing ? "Guardar cambios" : "Editar perfil"}
           >
-            <ActionButtonText>
-              {isEditing
-                ? isLoading
-                  ? "Guardando..."
-                  : "Guardar Cambios"
-                : "Editar Perfil"}
-            </ActionButtonText>
+            <Animated.View style={animatedButtonStyle}>
+              {isLoading ? (
+                <ActivityIndicator size="small" color="#ffffff" />
+              ) : (
+                <ActionButtonText>
+                  {isEditing ? "Guardar Cambios" : "Editar Perfil"}
+                </ActionButtonText>
+              )}
+            </Animated.View>
           </ActionButton>
           {isEditing && (
             <ActionButton
               isDarkMode={isDarkMode}
+              isCancel
               onPress={() => {
                 setIsEditing(false);
                 setNombreApellido(user?.nombreApellido || "");
@@ -405,10 +544,13 @@ export default function ProfileScreen() {
                 setNumeroCelular(user?.numeroCelular || "");
                 setContrasena("");
               }}
-              activeOpacity={0.7}
-              style={{ backgroundColor: isDarkMode ? "#ef4444" : "#dc2626" }}
+              onPressIn={handleButtonPressIn}
+              onPressOut={handleButtonPressOut}
+              accessibilityLabel="Cancelar edición"
             >
-              <ActionButtonText>Cancelar</ActionButtonText>
+              <Animated.View style={animatedButtonStyle}>
+                <ActionButtonText>Cancelar</ActionButtonText>
+              </Animated.View>
             </ActionButton>
           )}
         </FormContainer>
