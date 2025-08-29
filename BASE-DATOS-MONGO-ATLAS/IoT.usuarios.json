@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "689f7e2ac627cd08a143c424"
+  },
+  "nombreApellido": "Ian Gabriel Zuñiga Solano",
+  "numeroCelular": "925976376",
+  "correoElectronico": "Gabo@cistcor.com",
+  "contrasena": "$2b$10$7ZnDLxdrXOAdQfsT1rs1uujs4VEbRwGDpXenQUo6oMc7/r71E.Y7e",
+  "idAuto": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0e089c7e98c455b7b9d99"
+  },
+  "nombreApellido": "Britney Lucero Ticlla Hernández ",
+  "numeroCelular": "+51931734137",
+  "correoElectronico": "Lucero@cistcor.com",
+  "contrasena": "$2b$10$cmACDaU.c7g/HW5J/Tmsmu9Q2FanVtLXpOcxG3l4VY9QvVxf1H4iK",
+  "idAuto": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a347b200ee6383fc9591a5"
+  },
+  "nombreApellido": "Renzo Aron Pelaez Salazar",
+  "numeroCelular": "+51956263547",
+  "correoElectronico": "renzo@cistcor.com",
+  "contrasena": "$2b$10$zPW6T0GT6xSRjiQ5y28z/u6IHqB5QE95.aDTUSubDF0NCarauTMIG",
+  "idAuto": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a4a1aa41b6c2ff329d73d9"
+  },
+  "nombreApellido": "Victor Manuel Valerio Solano ",
+  "numeroCelular": "+51964531634",
+  "correoElectronico": "victor@cistcor.com",
+  "contrasena": "$2b$10$/7kDU88nBdzCI1wwc14SfujvF7oGb1VxQIjBSS08jNw2VZrm.kH6i",
+  "idAuto": 4,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "nombreApellido": "Talita Eresvit Chavez Guerrero",
+  "numeroCelular": "956365902",
+  "correoElectronico": "talita@cistcor.com",
+  "contrasena": "$2b$10$GEJZpqXWUK9NDb.QKEMM.eUu0ugqtTc/GDjRYbscMYGaGnw5Blbf.",
+  "idAuto": 5,
+  "__v": 0
+}]

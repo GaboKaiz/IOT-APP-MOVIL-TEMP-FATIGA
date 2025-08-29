@@ -1,0 +1,82 @@
+[{
+  "_id": {
+    "$oid": "68a0a55f6d91fd094b331b26"
+  },
+  "idCamara": "CAM123",
+  "ambiente": "oficina",
+  "idUsuario": {
+    "$oid": "689f7e2ac627cd08a143c424"
+  },
+  "foto": "http://api-node-js-iot-app-movil.onrender.com/uploads/1755358559108.jpg",
+  "fechaHora": {
+    "$date": "2025-08-16T15:35:59.262Z"
+  },
+  "idAuto": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a0b20ce763fb30ce084bb4"
+  },
+  "idCamara": "CAM5",
+  "ambiente": "Oficina A",
+  "idUsuario": {
+    "$oid": "689f7e2ac627cd08a143c424"
+  },
+  "foto": "/uploads/1755361804834.jpg",
+  "fechaHora": {
+    "$date": "2025-08-16T16:30:04.902Z"
+  },
+  "idAuto": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a348c900ee6383fc9591b0"
+  },
+  "idCamara": "CAM001",
+  "ambiente": "Laboratorio",
+  "idUsuario": {
+    "$oid": "68a347b200ee6383fc9591a5"
+  },
+  "foto": "/uploads/1755531465397.jpg",
+  "fechaHora": {
+    "$date": "2025-08-18T15:37:45.399Z"
+  },
+  "idAuto": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a899a4ede6612968f1ab06"
+  },
+  "idCamara": "CAM9",
+  "ambiente": "Cuarto G",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "foto": "https://res.cloudinary.com/dxgjtkqdz/image/upload/v1755879843/IoT_Fatiga/fatiga_1755879843024_Captura%20de%20pantalla%202023-12-05%20162111.png.png",
+  "cloudinaryPublicId": "IoT_Fatiga/fatiga_1755879843024_Captura de pantalla 2023-12-05 162111.png",
+  "fechaHora": {
+    "$date": "2025-08-22T16:24:04.569Z"
+  },
+  "idAuto": 13,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a8a4eaede6612968f1bbe1"
+  },
+  "idCamara": "IAN",
+  "ambiente": "CISTCOR-AMBIENTE",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "foto": "https://res.cloudinary.com/dxgjtkqdz/image/upload/v1755882729/IoT_Fatiga/fatiga_1755882729247_Gabo.jpg.jpg",
+  "cloudinaryPublicId": "IoT_Fatiga/fatiga_1755882729247_Gabo.jpg",
+  "fechaHora": {
+    "$date": "2025-08-22T17:12:10.515Z"
+  },
+  "idAuto": 14,
+  "__v": 0
+}]

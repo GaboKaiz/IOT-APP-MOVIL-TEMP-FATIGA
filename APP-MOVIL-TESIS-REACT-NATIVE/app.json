@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "tesis-app-movil",
+    "slug": "tesis-app-movil",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/IoT-Entrada.png",
+    "scheme": "tesisappmovil",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "androidNavigationBar": {
+        "backgroundColor": "#00000000",
+        "barStyle": "light-content"
+      },
+      "androidStatusBar": {
+        "backgroundColor": "#00000000",
+        "translucent": true,
+        "barStyle": "light-content"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/logo.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

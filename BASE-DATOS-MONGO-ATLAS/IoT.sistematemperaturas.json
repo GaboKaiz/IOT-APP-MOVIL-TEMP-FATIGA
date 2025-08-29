@@ -1,0 +1,1098 @@
+[{
+  "_id": {
+    "$oid": "689f7f8fc627cd08a143c429"
+  },
+  "temperatura": 25.5,
+  "ambiente": "Oficina",
+  "idUsuario": {
+    "$oid": "689f7e2ac627cd08a143c424"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "DEV001",
+  "fechaHora": {
+    "$date": "2025-08-15T18:42:23.103Z"
+  },
+  "idAuto": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a3485b00ee6383fc9591ac"
+  },
+  "temperatura": 25.5,
+  "ambiente": "Interior",
+  "idUsuario": {
+    "$oid": "68a347b200ee6383fc9591a5"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "DISP001",
+  "fechaHora": {
+    "$date": "2025-08-18T15:35:55.712Z"
+  },
+  "idAuto": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a6711d57b6b706be3b73a8"
+  },
+  "ambiente": "Casa",
+  "idUsuario": {
+    "$oid": "689f7e2ac627cd08a143c424"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "Mic78",
+  "fechaHora": {
+    "$date": "2025-08-21T01:06:37.782Z"
+  },
+  "idAuto": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67bff56e385c33e65260e"
+  },
+  "ambiente": "Cuarto B",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP2",
+  "fechaHora": {
+    "$date": "2025-08-21T01:53:03.826Z"
+  },
+  "idAuto": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67c4356e385c33e652611"
+  },
+  "ambiente": "Cuarto C",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP3",
+  "fechaHora": {
+    "$date": "2025-08-21T01:54:11.352Z"
+  },
+  "idAuto": 6,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67c4a56e385c33e652614"
+  },
+  "ambiente": "Cuarto C",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP3",
+  "fechaHora": {
+    "$date": "2025-08-21T01:54:18.615Z"
+  },
+  "idAuto": 7,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67c4d56e385c33e652617"
+  },
+  "ambiente": "Cuarto C",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP3",
+  "fechaHora": {
+    "$date": "2025-08-21T01:54:21.985Z"
+  },
+  "idAuto": 8,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67c5256e385c33e65261a"
+  },
+  "ambiente": "Cuarto C",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP3",
+  "fechaHora": {
+    "$date": "2025-08-21T01:54:26.159Z"
+  },
+  "idAuto": 9,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a67c5656e385c33e65261d"
+  },
+  "ambiente": "Cuarto C",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP3",
+  "fechaHora": {
+    "$date": "2025-08-21T01:54:30.131Z"
+  },
+  "idAuto": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7460eed7d156fff3203cc"
+  },
+  "temperatura": 0,
+  "ambiente": "interior",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:15:10.044Z"
+  },
+  "idAuto": 11,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a747c7ed7d156fff3203cf"
+  },
+  "temperatura": 0,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:22:31.872Z"
+  },
+  "idAuto": 12,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a747eded7d156fff3203d2"
+  },
+  "temperatura": 2.8,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:23:09.833Z"
+  },
+  "idAuto": 13,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7483fed7d156fff3203d5"
+  },
+  "temperatura": 2.8,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:24:31.064Z"
+  },
+  "idAuto": 14,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7484eed7d156fff3203d8"
+  },
+  "temperatura": 1.2,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:24:46.046Z"
+  },
+  "idAuto": 15,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7485ced7d156fff3203db"
+  },
+  "temperatura": 1.2,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:25:00.797Z"
+  },
+  "idAuto": 16,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7486ced7d156fff3203de"
+  },
+  "temperatura": 1.2,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:25:16.414Z"
+  },
+  "idAuto": 17,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7487ded7d156fff3203e1"
+  },
+  "temperatura": 1.2,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:25:33.318Z"
+  },
+  "idAuto": 18,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7488ded7d156fff3203e4"
+  },
+  "temperatura": 1.2,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:25:49.236Z"
+  },
+  "idAuto": 19,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7493eed7d156fff3203e7"
+  },
+  "temperatura": 0,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:28:46.161Z"
+  },
+  "idAuto": 20,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a749a8ed7d156fff3203ea"
+  },
+  "temperatura": -0.1,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:30:32.969Z"
+  },
+  "idAuto": 21,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a74a8eed7d156fff3203ed"
+  },
+  "temperatura": 0,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T16:34:22.549Z"
+  },
+  "idAuto": 22,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7a185e4c3cf8e097b630c"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T22:45:25.612Z"
+  },
+  "idAuto": 23,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7a192e4c3cf8e097b630f"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T22:45:38.016Z"
+  },
+  "idAuto": 24,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7a19ee4c3cf8e097b6312"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T22:45:50.264Z"
+  },
+  "idAuto": 25,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7a1dee4c3cf8e097b6315"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T22:46:54.587Z"
+  },
+  "idAuto": 26,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7a1ebe4c3cf8e097b6318"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP32-1",
+  "fechaHora": {
+    "$date": "2025-08-21T22:47:07.229Z"
+  },
+  "idAuto": 27,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7ed102ed555d6ae7439c0"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:07:44.206Z"
+  },
+  "idAuto": 29,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7ed202ed555d6ae7439c9"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:08:00.324Z"
+  },
+  "idAuto": 30,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7ed312ed555d6ae7439d2"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:08:17.174Z"
+  },
+  "idAuto": 31,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7ed412ed555d6ae7439d8"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:08:33.281Z"
+  },
+  "idAuto": 32,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7ed512ed555d6ae7439e1"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:08:49.226Z"
+  },
+  "idAuto": 33,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7ed612ed555d6ae7439e7"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:09:05.601Z"
+  },
+  "idAuto": 34,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f14a2ed555d6ae743b63"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T04:25:46.261Z"
+  },
+  "idAuto": 35,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f96d6455b1cdd1e4f892"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T05:00:29.620Z"
+  },
+  "idAuto": 36,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f9806455b1cdd1e4f89d"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-AFUERA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP32-10",
+  "fechaHora": {
+    "$date": "2025-08-22T05:00:48.240Z"
+  },
+  "idAuto": 37,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f9c56455b1cdd1e4f8c6"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:01:57.047Z"
+  },
+  "idAuto": 38,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f9d36455b1cdd1e4f8d2"
+  },
+  "temperatura": 24,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:02:11.290Z"
+  },
+  "idAuto": 39,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f9e16455b1cdd1e4f8e1"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:02:25.362Z"
+  },
+  "idAuto": 40,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f9ef6455b1cdd1e4f8ec"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:02:39.474Z"
+  },
+  "idAuto": 41,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7f9fd6455b1cdd1e4f8f7"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:02:53.835Z"
+  },
+  "idAuto": 42,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa0b6455b1cdd1e4f906"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:03:07.929Z"
+  },
+  "idAuto": 43,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa1a6455b1cdd1e4f912"
+  },
+  "temperatura": 45.3,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:03:22.246Z"
+  },
+  "idAuto": 44,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa286455b1cdd1e4f921"
+  },
+  "temperatura": 68.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:03:36.342Z"
+  },
+  "idAuto": 45,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa366455b1cdd1e4f92d"
+  },
+  "temperatura": 68.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:03:50.168Z"
+  },
+  "idAuto": 46,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa446455b1cdd1e4f93c"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:04:04.595Z"
+  },
+  "idAuto": 47,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa536455b1cdd1e4f948"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:04:19.032Z"
+  },
+  "idAuto": 48,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa616455b1cdd1e4f952"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:04:33.041Z"
+  },
+  "idAuto": 49,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa6f6455b1cdd1e4f95d"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:04:47.235Z"
+  },
+  "idAuto": 50,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa7d6455b1cdd1e4f967"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:05:01.756Z"
+  },
+  "idAuto": 51,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa8c6455b1cdd1e4f972"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:05:16.707Z"
+  },
+  "idAuto": 52,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fa9b6455b1cdd1e4f97a"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:05:31.202Z"
+  },
+  "idAuto": 53,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7faa96455b1cdd1e4f987"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:05:45.877Z"
+  },
+  "idAuto": 54,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fab86455b1cdd1e4f98f"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:06:00.467Z"
+  },
+  "idAuto": 55,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fac66455b1cdd1e4f99c"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:06:14.737Z"
+  },
+  "idAuto": 56,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fad46455b1cdd1e4f9a4"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:06:28.703Z"
+  },
+  "idAuto": 57,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7fae26455b1cdd1e4f9ae"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:06:42.641Z"
+  },
+  "idAuto": 58,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a7faf16455b1cdd1e4f9b9"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T05:06:57.133Z"
+  },
+  "idAuto": 59,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a8a37fede6612968f1b8c0"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-22T17:06:07.822Z"
+  },
+  "idAuto": 60,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a8a3f2ede6612968f1b9b5"
+  },
+  "temperatura": -27.1,
+  "ambiente": "SALON-CISTCOR",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "CO25",
+  "fechaHora": {
+    "$date": "2025-08-22T17:08:02.701Z"
+  },
+  "idAuto": 61,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68a8a446ede6612968f1ba7e"
+  },
+  "temperatura": 48.6,
+  "ambiente": "SALON-CISTCOR",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "CO25",
+  "fechaHora": {
+    "$date": "2025-08-22T17:09:26.031Z"
+  },
+  "idAuto": 62,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68b0fab9516dbfc514492fdc"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-29T00:56:25.612Z"
+  },
+  "idAuto": 63,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68b0fac9516dbfc514492fdf"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-29T00:56:41.934Z"
+  },
+  "idAuto": 64,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68b0fadb516dbfc514492fe2"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-29T00:56:59.239Z"
+  },
+  "idAuto": 65,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68b0faec516dbfc514492fe5"
+  },
+  "temperatura": -27.1,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": false,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-29T00:57:16.945Z"
+  },
+  "idAuto": 66,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68b0fafc516dbfc514492fe8"
+  },
+  "temperatura": 46,
+  "ambiente": "AMBIENTE-CASA",
+  "idUsuario": {
+    "$oid": "68a67b6056e385c33e652607"
+  },
+  "conectadoVentilador": true,
+  "idDispositivo": "ESP38",
+  "fechaHora": {
+    "$date": "2025-08-29T00:57:32.934Z"
+  },
+  "idAuto": 67,
+  "__v": 0
+}]
