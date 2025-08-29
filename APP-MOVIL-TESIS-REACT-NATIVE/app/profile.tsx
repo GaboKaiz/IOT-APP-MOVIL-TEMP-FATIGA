@@ -5,9 +5,10 @@ import { useRouter } from "expo-router";
 import React, { useContext, useEffect, useState } from "react";
 import {
   ActivityIndicator,
-  Alert,
   Dimensions,
   Image,
+  LayoutChangeEvent,
+  ScrollView,
   TextInput,
   TouchableOpacity,
   View,
@@ -17,7 +18,10 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import styled from "styled-components/native";
 import BottomNav from "../components/BottomNav";
 import { ThemeContext } from "../contexts/ThemeContext";
@@ -97,10 +101,9 @@ const Container = styled(SafeAreaView)<{ isDarkMode: boolean }>`
     ${responsiveWidth * 0.04}px;
 `;
 
-const Content = styled.View`
+const Content = styled(ScrollView)<{ bottomPadding: number }>`
   flex: 1;
-  align-items: center;
-  padding-bottom: ${responsiveHeight * 0.15}px; /* Espacio para BottomNav */
+  padding-bottom: ${({ bottomPadding }) => bottomPadding}px;
 `;
 
 const Header = styled(View)<{ isDarkMode: boolean }>`
@@ -108,15 +111,13 @@ const Header = styled(View)<{ isDarkMode: boolean }>`
   justify-content: space-between;
   align-items: center;
   padding: ${isSmallScreen
-    ? responsiveHeight * 0.015
-    : responsiveHeight * 0.02}px;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? "#2d3748" : "#e0f2fe")};
-  border-radius: 16px;
-  margin-bottom: ${isSmallScreen
-    ? responsiveHeight * 0.02
-    : responsiveHeight * 0.025}px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  width: ${responsiveWidth * 0.92}px;
+    ? responsiveHeight * 0.03
+    : responsiveHeight * 0.035}px;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? "#1e40af" : "#3b82f6")};
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
 `;
 
 const ProfileHeader = styled.View<{ isDarkMode: boolean }>`
@@ -134,6 +135,7 @@ const ProfileHeader = styled.View<{ isDarkMode: boolean }>`
     : responsiveHeight * 0.02}px;
   border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#60a5fa" : "#3b82f6")};
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  width: ${responsiveWidth * 0.92}px;
 `;
 
 const ProfileImage = styled(Image)`
@@ -149,8 +151,8 @@ const ProfileImage = styled(Image)`
 const ProfileName = styled.Text<{ isDarkMode: boolean }>`
   font-size: ${isSmallScreen
     ? responsiveWidth * 0.06
-    : responsiveWidth * 0.07}px;
-  font-weight: bold;
+    : responsiveWidth * 0.065}px;
+  font-weight: 900;
   color: ${({ isDarkMode }) => (isDarkMode ? "#e0f2fe" : "#1e3a8a")};
 `;
 
@@ -164,16 +166,19 @@ const ProfileEmail = styled.Text<{ isDarkMode: boolean }>`
 
 const FormContainer = styled.View<{ isDarkMode: boolean }>`
   width: ${responsiveWidth * 0.92}px;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? "#2d3748" : "#ffffff")};
-  border-radius: 16px;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? "#1f2937" : "#ffffff")};
+  border-radius: 20px;
   padding: ${isSmallScreen
-    ? responsiveHeight * 0.02
-    : responsiveHeight * 0.025}px;
-  margin-top: ${isSmallScreen
-    ? responsiveHeight * 0.02
+    ? responsiveHeight * 0.025
     : responsiveHeight * 0.03}px;
-  border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#60a5fa" : "#3b82f6")};
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  margin-top: ${isSmallScreen
+    ? responsiveHeight * 0.04
+    : responsiveHeight * 0.01}px;
+  margin-bottom: ${isSmallScreen
+    ? responsiveHeight * 0.04
+    : responsiveHeight * 0.2}px;
+  border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#4b5563" : "#93c5fd")};
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 `;
 
 const InputContainer = styled.View`
@@ -194,7 +199,7 @@ const Input = styled(TextInput)<{ isDarkMode: boolean; editable: boolean }>`
     isDarkMode
       ? editable
         ? "#374151"
-        : "#2d3748"
+        : "#1f2937"
       : editable
       ? "#f3f4f6"
       : "#e5e7eb"};
@@ -205,6 +210,15 @@ const Input = styled(TextInput)<{ isDarkMode: boolean; editable: boolean }>`
     : responsiveWidth * 0.045}px;
   color: ${({ isDarkMode }) => (isDarkMode ? "#d1d5db" : "#1e3a8a")};
   border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#4b5563" : "#d1d5db")};
+`;
+
+const ButtonContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: ${isSmallScreen
+    ? responsiveHeight * 0.015
+    : responsiveHeight * 0.02}px;
 `;
 
 const ActionButton = styled(TouchableOpacity)<{
@@ -220,20 +234,18 @@ const ActionButton = styled(TouchableOpacity)<{
       ? "#3b82f6"
       : "#1e40af"};
   border-radius: 12px;
-  padding: ${isSmallScreen ? 12 : 14}px;
+  padding: ${isSmallScreen ? 8 : 10}px;
   align-items: center;
-  margin-top: ${isSmallScreen
-    ? responsiveHeight * 0.015
-    : responsiveHeight * 0.02}px;
-  width: ${responsiveWidth * 0.92}px;
+  margin-horizontal: ${isSmallScreen ? 8 : 10}px;
+  width: ${responsiveWidth * 0.5}px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 `;
 
 const ActionButtonText = styled.Text`
   color: #ffffff;
   font-size: ${isSmallScreen
-    ? responsiveWidth * 0.04
-    : responsiveWidth * 0.045}px;
+    ? responsiveWidth * 0.035
+    : responsiveWidth * 0.04}px;
   font-weight: 600;
 `;
 
@@ -253,6 +265,8 @@ export default function ProfileScreen() {
   const [numeroCelular, setNumeroCelular] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
+  const insets = useSafeAreaInsets();
   const scale = useSharedValue(1);
 
   const animatedButtonStyle = useAnimatedStyle(() => ({
@@ -267,20 +281,30 @@ export default function ProfileScreen() {
     scale.value = withSpring(1);
   };
 
+  const onNavLayout = (event: LayoutChangeEvent) => {
+    const { height } = event.nativeEvent.layout;
+    setNavHeight(height);
+  };
+
   useEffect(() => {
     const loadUser = async () => {
-      const storedUser = await AsyncStorage.getItem("user");
-      if (storedUser) {
-        const parsed = JSON.parse(storedUser);
-        setUser(parsed);
-        setNombreApellido(parsed.nombreApellido || "");
-        setCorreoElectronico(parsed.correoElectronico || "");
-        setNumeroCelular(parsed.numeroCelular || "");
-        const nombreLower = parsed.nombreApellido.toLowerCase();
-        const esMujer =
-          nombresFemeninos.some((nombre) => nombreLower.includes(nombre)) ||
-          nombreLower.endsWith("a");
-        setGenero(esMujer ? "mujer" : "hombre");
+      try {
+        const storedUser = await AsyncStorage.getItem("user");
+        if (storedUser) {
+          const parsed = JSON.parse(storedUser);
+          setUser(parsed);
+          setNombreApellido(parsed.nombreApellido || "");
+          setCorreoElectronico(parsed.correoElectronico || "");
+          setNumeroCelular(parsed.numeroCelular || "");
+          const nombreLower = parsed.nombreApellido.toLowerCase();
+          const esMujer =
+            nombresFemeninos.some((nombre) => nombreLower.includes(nombre)) ||
+            nombreLower.endsWith("a");
+          setGenero(esMujer ? "mujer" : "hombre");
+        }
+      } catch (error) {
+        console.error("Error loading user:", error);
+        Alert.alert("Error", "No se pudo cargar la información del usuario");
       }
     };
     loadUser();
@@ -394,10 +418,10 @@ export default function ProfileScreen() {
   };
 
   const handleNavigation = (path: string) => {
-    if (path === "Home") router.push("/dashboard");
+    if (path === "Home" && router.pathname === "/dashboard") return;
     if (path === "Temperatura") router.push("/temperatura");
     if (path === "Fatiga") router.push("/fatiga");
-    if (path === "Profile" && router.pathname === "/profile") return;
+    if (path === "Profile") router.push("/profile");
     if (path === "Cerrar Sesión") {
       AsyncStorage.removeItem("token");
       AsyncStorage.removeItem("user");
@@ -407,7 +431,10 @@ export default function ProfileScreen() {
 
   return (
     <Container isDarkMode={isDarkMode}>
-      <Content>
+      <Content
+        contentContainerStyle={{ alignItems: "center" }}
+        bottomPadding={insets.bottom + navHeight + (isSmallScreen ? 60 : 80)}
+      >
         <Header isDarkMode={isDarkMode}>
           <TouchableOpacity
             onPress={() => router.back()}
@@ -418,8 +445,12 @@ export default function ProfileScreen() {
             <Animated.View style={animatedButtonStyle}>
               <Ionicons
                 name="arrow-back"
-                size={isSmallScreen ? 22 : 26}
-                color={isDarkMode ? "#e0f2fe" : "#1e40af"}
+                size={
+                  isSmallScreen
+                    ? responsiveWidth * 0.07
+                    : responsiveWidth * 0.08
+                }
+                color="#ffffff"
               />
             </Animated.View>
           </TouchableOpacity>
@@ -432,9 +463,13 @@ export default function ProfileScreen() {
           >
             <Animated.View style={animatedButtonStyle}>
               <Ionicons
-                name={isDarkMode ? "sunny" : "moon"}
-                size={isSmallScreen ? 22 : 26}
-                color={isDarkMode ? "#e0f2fe" : "#1e40af"}
+                name={isDarkMode ? "sunny-outline" : "moon-outline"}
+                size={
+                  isSmallScreen
+                    ? responsiveWidth * 0.07
+                    : responsiveWidth * 0.08
+                }
+                color="#ffffff"
               />
             </Animated.View>
           </TouchableOpacity>
@@ -515,47 +550,51 @@ export default function ProfileScreen() {
               secureTextEntry
             />
           </InputContainer>
-          <ActionButton
-            isDarkMode={isDarkMode}
-            onPress={handleUpdateProfile}
-            disabled={isLoading}
-            onPressIn={handleButtonPressIn}
-            onPressOut={handleButtonPressOut}
-            accessibilityLabel={isEditing ? "Guardar cambios" : "Editar perfil"}
-          >
-            <Animated.View style={animatedButtonStyle}>
-              {isLoading ? (
-                <ActivityIndicator size="small" color="#ffffff" />
-              ) : (
-                <ActionButtonText>
-                  {isEditing ? "Guardar Cambios" : "Editar Perfil"}
-                </ActionButtonText>
-              )}
-            </Animated.View>
-          </ActionButton>
-          {isEditing && (
+          <ButtonContainer>
             <ActionButton
               isDarkMode={isDarkMode}
-              isCancel
-              onPress={() => {
-                setIsEditing(false);
-                setNombreApellido(user?.nombreApellido || "");
-                setCorreoElectronico(user?.correoElectronico || "");
-                setNumeroCelular(user?.numeroCelular || "");
-                setContrasena("");
-              }}
+              onPress={handleUpdateProfile}
+              disabled={isLoading}
               onPressIn={handleButtonPressIn}
               onPressOut={handleButtonPressOut}
-              accessibilityLabel="Cancelar edición"
+              accessibilityLabel={
+                isEditing ? "Guardar cambios" : "Editar perfil"
+              }
             >
               <Animated.View style={animatedButtonStyle}>
-                <ActionButtonText>Cancelar</ActionButtonText>
+                {isLoading ? (
+                  <ActivityIndicator size="small" color="#ffffff" />
+                ) : (
+                  <ActionButtonText>
+                    {isEditing ? "Guardar Cambios" : "Editar Perfil"}
+                  </ActionButtonText>
+                )}
               </Animated.View>
             </ActionButton>
-          )}
+            {isEditing && (
+              <ActionButton
+                isDarkMode={isDarkMode}
+                isCancel
+                onPress={() => {
+                  setIsEditing(false);
+                  setNombreApellido(user?.nombreApellido || "");
+                  setCorreoElectronico(user?.correoElectronico || "");
+                  setNumeroCelular(user?.numeroCelular || "");
+                  setContrasena("");
+                }}
+                onPressIn={handleButtonPressIn}
+                onPressOut={handleButtonPressOut}
+                accessibilityLabel="Cancelar edición"
+              >
+                <Animated.View style={animatedButtonStyle}>
+                  <ActionButtonText>Cancelar</ActionButtonText>
+                </Animated.View>
+              </ActionButton>
+            )}
+          </ButtonContainer>
         </FormContainer>
       </Content>
-      <BottomNav onNavigate={handleNavigation} />
+      <BottomNav onNavigate={handleNavigation} onLayout={onNavLayout} />
     </Container>
   );
 }
